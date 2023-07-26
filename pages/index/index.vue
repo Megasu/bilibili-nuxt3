@@ -1,5 +1,7 @@
 <script setup lang="ts">
-//
+// get  /api/channel
+// 通过 useFetch 获取频道列表数据，data 是响应式数据，可以直接用于界面渲染
+const { data: channelList } = await useFetch('/api/channel')
 </script>
 
 <template>
@@ -18,11 +20,11 @@
   </header>
   <!-- 频道模块 -->
   <van-tabs>
-    <van-tab v-for="item in 10" :key="item" title="频道" />
+    <van-tab v-for="item in channelList" :key="item.id" :title="item.name" />
   </van-tabs>
   <!-- 视频列表 -->
   <div class="video-list">
-    <NuxtLink class="v-card" v-for="item in 20" :key="item" :to="`/video/0`">
+    <NuxtLink class="v-card" v-for="item in 20" :key="item" :to="`/video`">
       <div class="card">
         <div class="card-img">
           <img
