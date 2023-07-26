@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import type { VideoItem } from '@/types/video'
 // get  /api/channel
+
 // 通过 useFetch 获取频道列表数据，data 是响应式数据，可以直接用于界面渲染
 const { data: channelList } = await useFetch('/api/channel')
 
@@ -7,7 +9,7 @@ const { data: channelList } = await useFetch('/api/channel')
 const { data: videoList } = await useFetch('/api/video')
 
 // 显示的列表
-const list = ref<any[]>([])
+const list = ref<VideoItem[]>([])
 // 加载状态
 const loading = ref(false)
 // 是否加载完成
@@ -25,7 +27,7 @@ const onLoad = () => {
   const data = videoList.value?.slice(
     (page - 1) * pageSize,
     page * pageSize,
-  ) as any[]
+  ) as VideoItem[]
   // 追加到用于渲染的数组中
   list.value.push(...data)
   // 页码累加
