@@ -72,7 +72,7 @@ onLoad()
         class="v-card"
         v-for="item in list"
         :key="item.aid"
-        :to="`/video`"
+        :to="`/video/${item.bvid}`"
       >
         <div class="card">
           <div class="card-img">
