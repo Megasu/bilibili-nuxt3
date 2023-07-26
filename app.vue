@@ -20,3 +20,10 @@ useSeoMeta({
   <!-- Nuxt 页面路由，相当于 RouterView -->
   <NuxtPage />
 </template>
+
+<style>
+:root {
+  /* CSS 变量设置组件库主题 */
+  --van-primary-color: #fb7299 !important;
+}
+</style>
