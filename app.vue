@@ -10,18 +10,15 @@ useSeoMeta({
 </script>
 
 <template>
-  <!-- Nuxt 基于文件的路由系统 -->
-
-  <!-- 首页 index/index.vue -->
-  <NuxtLink to="/">首页</NuxtLink>
-  <!-- 首页 video/index.vue -->
-  <NuxtLink to="/video">视频页</NuxtLink>
-
   <!-- Nuxt 页面路由，相当于 RouterView -->
   <NuxtPage />
 </template>
 
-<style>
+<style lang="scss">
+// 基础样式
+@import './assets/styles/base.scss';
+// 字体图标
+@import './assets/styles/iconfont.scss';
 :root {
   /* CSS 变量设置组件库主题 */
   --van-primary-color: #fb7299 !important;

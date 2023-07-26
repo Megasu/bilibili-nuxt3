@@ -14,6 +14,7 @@
     "nuxt": "^3.6.5"
   },
   "dependencies": {
-    "@vant/nuxt": "^1.0.2"
+    "@vant/nuxt": "^1.0.2",
+    "sass": "^1.64.1"
   }
 }
