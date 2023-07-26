@@ -2,6 +2,9 @@
 // get  /api/channel
 // 通过 useFetch 获取频道列表数据，data 是响应式数据，可以直接用于界面渲染
 const { data: channelList } = await useFetch('/api/channel')
+
+// 获取视频列表数据
+const { data: videoList } = await useFetch('/api/video')
 </script>
 
 <template>
@@ -24,27 +27,28 @@ const { data: channelList } = await useFetch('/api/channel')
   </van-tabs>
   <!-- 视频列表 -->
   <div class="video-list">
-    <NuxtLink class="v-card" v-for="item in 20" :key="item" :to="`/video`">
+    <NuxtLink
+      class="v-card"
+      v-for="item in videoList"
+      :key="item.aid"
+      :to="`/video`"
+    >
       <div class="card">
         <div class="card-img">
-          <img
-            class="pic"
-            src="@/assets/images/loading.png"
-            alt="当你觉得扛不住的时候来看看这段视频"
-          />
+          <img class="pic" :src="item.pic" :alt="item.title" />
         </div>
         <div class="count">
           <span>
             <i class="iconfont icon_shipin_bofangshu"></i>
-            676.2万
+            {{ item.stat.view }}
           </span>
           <span>
             <i class="iconfont icon_shipin_danmushu"></i>
-            1.6万
+            {{ item.stat.danmaku }}
           </span>
         </div>
       </div>
-      <p class="title">当你觉得扛不住的时候来看看这段视频</p>
+      <p class="title">{{ item.title }}</p>
     </NuxtLink>
   </div>
 </template>
